@@ -447,7 +447,29 @@
               <a href="mailto:hello@eltonwebdesignuk.com">hello@eltonwebdesignuk.com</a>
             </p>
           </div>
-          <form class="contact-form" action="mailto:hello@eltonwebdesignuk.com" method="post" enctype="text/plain">
+          <form
+            class="contact-form"
+            action="https://formsubmit.co/hello@eltonwebdesignuk.com"
+            method="post"
+          >
+            <input type="hidden" name="_subject" value="New enquiry — Elton Web Design" />
+            <input
+              type="hidden"
+              name="_next"
+              value="https://eltonwebdesignuk.com/?enquiry=sent#contact"
+            />
+            <input type="hidden" name="_captcha" value="false" />
+            <input
+              type="text"
+              name="_honey"
+              class="form-honey"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+            <p class="form-success" id="form-success" hidden role="status">
+              Thanks — your enquiry was sent. We’ll reply within one business day.
+            </p>
             <label>
               Name
               <input type="text" name="name" required autocomplete="name" />

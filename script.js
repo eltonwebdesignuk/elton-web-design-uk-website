@@ -69,3 +69,19 @@
 
   goTo(0);
 })();
+
+(() => {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("enquiry") !== "sent") return;
+
+  const success = document.getElementById("form-success");
+  if (success) {
+    success.hidden = false;
+    success.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  params.delete("enquiry");
+  const clean = params.toString();
+  const nextUrl = `${window.location.pathname}${clean ? `?${clean}` : ""}${window.location.hash}`;
+  window.history.replaceState({}, "", nextUrl);
+})();
