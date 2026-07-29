@@ -2,7 +2,7 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const revealTargets = document.querySelectorAll(
-    ".section h2, .section-lead, .audience-list, .package, .steps li, .contact-form, .payment-note, .carousel, .ai-how, .ai-price, .econ, .econ-note, .result-stat"
+    ".section h2, .section-lead, .audience-list, .package, .steps li, .contact-embed, .payment-note, .carousel, .ai-how, .ai-price, .econ, .econ-note, .result-stat"
   );
 
   revealTargets.forEach((el) => el.classList.add("reveal"));
@@ -68,20 +68,4 @@
   });
 
   goTo(0);
-})();
-
-(() => {
-  const params = new URLSearchParams(window.location.search);
-  if (params.get("enquiry") !== "sent") return;
-
-  const success = document.getElementById("form-success");
-  if (success) {
-    success.hidden = false;
-    success.scrollIntoView({ behavior: "smooth", block: "nearest" });
-  }
-
-  params.delete("enquiry");
-  const clean = params.toString();
-  const nextUrl = `${window.location.pathname}${clean ? `?${clean}` : ""}${window.location.hash}`;
-  window.history.replaceState({}, "", nextUrl);
 })();

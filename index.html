@@ -422,61 +422,45 @@
               <a href="mailto:hello@eltonwebdesignuk.com">hello@eltonwebdesignuk.com</a>
             </p>
           </div>
-          <form
-            class="contact-form"
-            action="https://formsubmit.co/hello@eltonwebdesignuk.com"
-            method="post"
-          >
-            <input type="hidden" name="_subject" value="New enquiry — Elton Web Design" />
-            <input
-              type="hidden"
-              name="_next"
-              value="https://eltonwebdesignuk.com/?enquiry=sent#contact"
-            />
-            <input type="hidden" name="_captcha" value="false" />
-            <input
-              type="text"
-              name="_honey"
-              class="form-honey"
-              tabindex="-1"
-              autocomplete="off"
-              aria-hidden="true"
-            />
-            <p class="form-success" id="form-success" hidden role="status">
-              Thanks — your enquiry was sent. We’ll reply within one business day.
-            </p>
-            <label>
-              Name
-              <input type="text" name="name" required autocomplete="name" />
-            </label>
-            <label>
-              Business name
-              <input type="text" name="business" required />
-            </label>
-            <label>
-              Email
-              <input type="email" name="email" required autocomplete="email" />
-            </label>
-            <label>
-              What do you need?
-              <select name="package" required>
-                <option value="">Select an option</option>
-                <option value="build-ship">Build &amp; ship — £495</option>
-                <option value="build-manage">Build, ship &amp; manage — £495 + £99/mo</option>
-                <option value="build-ai">Website + AI chatbot add-on</option>
-                <option value="ai-only">AI chatbot add-on only — £495 + cloud</option>
-                <option value="not-sure">Not sure yet</option>
-              </select>
-            </label>
-            <label>
-              Message
-              <textarea name="message" rows="4" placeholder="City, what you do, and whether you have a site today."></textarea>
-            </label>
-            <button class="btn btn-primary" type="submit">Send enquiry</button>
-            <p class="form-note">
-              By sending, you agree we may reply about your enquiry. No spam lists.
-            </p>
-          </form>
+          <div class="contact-embed">
+            <iframe
+              id="ziframe_1969"
+              aria-label="Elton Web Design Contact"
+              title="Elton Web Design Contact"
+              src="https://forms.zohopublic.com/helloeltonweb1/form/EltonWebDesignContact/formperma/BBO2E4EA9Z9qQsKgEucC1cyPForL_DnfTIhOjBXY4Tw"
+            ></iframe>
+          </div>
+          <script>
+            (function () {
+              try {
+                var zf_frame = document.getElementById("ziframe_1969");
+                var ifrmSrc = zf_frame.src;
+                if (!/[?&]referrername=/.test(ifrmSrc)) {
+                  var rfr = window.location.href;
+                  try {
+                    rfr =
+                      window.self !== window.top
+                        ? window.top.location.href
+                        : /^https?:\/\/[\w.-]+\.[a-zA-Z]{2,}/i.test(rfr)
+                          ? rfr
+                          : "";
+                  } catch (e) {}
+                  if (rfr) {
+                    if (rfr.length > 1800) {
+                      var q = rfr.indexOf("?");
+                      if (q > -1) rfr = rfr.substring(0, q);
+                      if (rfr.length > 1800) rfr = rfr.substring(0, 1800);
+                    }
+                    ifrmSrc +=
+                      (ifrmSrc.indexOf("?") > 0 ? "&" : "?") +
+                      "referrername=" +
+                      encodeURIComponent(rfr);
+                  }
+                }
+                if (zf_frame.src !== ifrmSrc) zf_frame.src = ifrmSrc;
+              } catch (e) {}
+            })();
+          </script>
         </div>
       </section>
     </main>
