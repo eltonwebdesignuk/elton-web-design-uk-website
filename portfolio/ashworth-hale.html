@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ashworth &amp; Hale — Solicitors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #0c1b33;
+        --navy-mid: #162a4a;
+        --ivory: #f4f1ea;
+        --gold: #b8954a;
+        --ink: #0c1b33;
+        --display: "Libre Baskerville", Georgia, serif;
+        --body: "Source Sans 3", system-ui, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: var(--body);
+        color: var(--ink);
+        background: var(--ivory);
+        line-height: 1.6;
+      }
+      .site-header {
+        position: absolute;
+        inset: 0 0 auto;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.4rem 2rem;
+        color: var(--ivory);
+      }
+      .logo {
+        font-family: var(--display);
+        font-size: 1.05rem;
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: 0.04em;
+      }
+      .nav {
+        display: flex;
+        gap: 1.75rem;
+        font-size: 0.92rem;
+        font-weight: 500;
+      }
+      .nav a {
+        color: inherit;
+        text-decoration: none;
+        opacity: 0.88;
+      }
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: grid;
+        align-items: center;
+        color: var(--ivory);
+        overflow: hidden;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(105deg, rgba(12, 27, 51, 0.94) 0%, rgba(12, 27, 51, 0.78) 48%, rgba(12, 27, 51, 0.45) 100%),
+          url("https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1800&q=80")
+            center / cover no-repeat;
+        animation: fadeIn 1.2s ease both;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        padding: 6rem 2rem 4rem;
+        max-width: 42rem;
+        animation: slideUp 0.85s 0.15s ease both;
+      }
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .brand-mark {
+        font-family: var(--display);
+        font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+        font-weight: 700;
+        margin: 0 0 1rem;
+        line-height: 1.15;
+      }
+      .hero h1 {
+        font-family: var(--display);
+        font-weight: 400;
+        font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+        margin: 0 0 1rem;
+        line-height: 1.45;
+        font-style: italic;
+        color: rgba(244, 241, 234, 0.92);
+      }
+      .hero-lead {
+        margin: 0 0 1.75rem;
+        max-width: 30rem;
+        opacity: 0.85;
+        font-size: 1.05rem;
+      }
+      .btn {
+        display: inline-flex;
+        padding: 0.9rem 1.5rem;
+        font-family: var(--body);
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s ease, transform 0.2s ease;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        background: var(--gold);
+        color: var(--navy);
+      }
+      .btn-primary:hover {
+        background: #c9a65a;
+      }
+      .section {
+        padding: 5rem 2rem;
+      }
+      .wrap {
+        max-width: 62rem;
+        margin: 0 auto;
+      }
+      .section h2 {
+        font-family: var(--display);
+        font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+        margin: 0 0 0.75rem;
+        line-height: 1.25;
+      }
+      .section-lead {
+        margin: 0 0 2.5rem;
+        max-width: 34rem;
+        color: rgba(12, 27, 51, 0.7);
+      }
+      .practice {
+        display: grid;
+        gap: 2.5rem 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      }
+      .practice article h3 {
+        font-family: var(--display);
+        font-size: 1.15rem;
+        margin: 0 0 0.4rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid rgba(12, 27, 51, 0.15);
+      }
+      .practice article p {
+        margin: 0;
+        color: rgba(12, 27, 51, 0.68);
+        font-size: 0.98rem;
+      }
+      .trust {
+        background: var(--navy);
+        color: var(--ivory);
+      }
+      .trust .section-lead {
+        color: rgba(244, 241, 234, 0.7);
+      }
+      .trust-stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.5rem 4rem;
+      }
+      .trust-stats div strong {
+        display: block;
+        font-family: var(--display);
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+      }
+      .trust-stats div span {
+        opacity: 0.75;
+        font-size: 0.95rem;
+      }
+      .cta {
+        text-align: center;
+        background: linear-gradient(180deg, #eae6dc, var(--ivory));
+      }
+      .cta .btn-primary {
+        margin-top: 0.5rem;
+      }
+      footer {
+        background: var(--navy);
+        color: rgba(244, 241, 234, 0.55);
+        text-align: center;
+        padding: 1.75rem;
+        font-size: 0.88rem;
+      }
+      @media (max-width: 640px) {
+        .nav {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="#">ASHWORTH &amp; HALE</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#practice">Practice</a>
+        <a href="#firm">The firm</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="brand-mark">Ashworth &amp; Hale</p>
+          <h1>Clear counsel for families and businesses across the South East.</h1>
+          <p class="hero-lead">
+            Private client, commercial, and dispute resolution — delivered with
+            precision and discretion.
+          </p>
+          <a class="btn btn-primary" href="#contact">Book a consultation</a>
+        </div>
+      </section>
+
+      <section class="section" id="practice">
+        <div class="wrap">
+          <h2>Practice areas</h2>
+          <p class="section-lead">
+            Focused advice when the stakes are personal, commercial, or both.
+          </p>
+          <div class="practice">
+            <article>
+              <h3>Private client</h3>
+              <p>Wills, trusts, probate, and lasting powers of attorney.</p>
+            </article>
+            <article>
+              <h3>Residential property</h3>
+              <p>Purchases, sales, remortgages, and leasehold matters.</p>
+            </article>
+            <article>
+              <h3>Commercial</h3>
+              <p>Company formations, shareholder agreements, and contracts.</p>
+            </article>
+            <article>
+              <h3>Dispute resolution</h3>
+              <p>Pragmatic negotiation and litigation when needed.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section trust" id="firm">
+        <div class="wrap">
+          <h2>A firm built on judgement</h2>
+          <p class="section-lead">
+            Established in Tunbridge Wells. Partner-led work from the first meeting.
+          </p>
+          <div class="trust-stats">
+            <div>
+              <strong>40+</strong>
+              <span>Years combined experience</span>
+            </div>
+            <div>
+              <strong>SRA</strong>
+              <span>Regulated solicitors</span>
+            </div>
+            <div>
+              <strong>1:1</strong>
+              <span>Partner access throughout</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section cta" id="contact">
+        <div class="wrap">
+          <h2>Speak with a partner</h2>
+          <p class="section-lead" style="margin-left: auto; margin-right: auto">
+            Initial consultations available in person or by video call.
+          </p>
+          <a class="btn btn-primary" href="mailto:enquiries@ashworthhale.example"
+            >Request a consultation</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>Ashworth &amp; Hale Solicitors · Tunbridge Wells · Concept design demo</footer>
+  </body>
+</html>

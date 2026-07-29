@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio demos — Elton Web Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --ink: #12151a;
+        --muted: #5a6270;
+        --line: rgba(18, 21, 26, 0.1);
+        --bg: #f7f5f1;
+        --card: #fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "DM Sans", system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.5;
+      }
+      header {
+        padding: 3rem 1.5rem 1.5rem;
+        max-width: 72rem;
+        margin: 0 auto;
+      }
+      header h1 {
+        font-family: "Instrument Serif", Georgia, serif;
+        font-weight: 400;
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin: 0 0 0.5rem;
+      }
+      header p {
+        margin: 0;
+        color: var(--muted);
+        max-width: 36rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+        gap: 1.25rem;
+        padding: 1.5rem;
+        max-width: 72rem;
+        margin: 0 auto 4rem;
+      }
+      a.demo {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      a.demo:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 40px rgba(18, 21, 26, 0.1);
+      }
+      .swatch {
+        height: 7rem;
+        background-size: cover;
+        background-position: center;
+      }
+      .meta {
+        padding: 1rem 1.1rem 1.2rem;
+      }
+      .meta .industry {
+        font-size: 0.75rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 0.35rem;
+      }
+      .meta h2 {
+        margin: 0;
+        font-size: 1.15rem;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Portfolio demos</h1>
+      <p>
+        Ten fictional brand landing pages for screenshot use. Open each page,
+        capture desktop and mobile, then feature them as previous work.
+      </p>
+    </header>
+    <div class="grid">
+      <a class="demo" href="harbour-hearth.html">
+        <div
+          class="swatch"
+          style="background-image: linear-gradient(135deg, #1a3a3a, #c4a574)"
+        ></div>
+        <div class="meta">
+          <p class="industry">Restaurant</p>
+          <h2>Harbour &amp; Hearth</h2>
+        </div>
+      </a>
+      <a class="demo" href="ashworth-hale.html">
+        <div
+          class="swatch"
+          style="background-image: linear-gradient(135deg, #0c1b33, #e8e4db)"
+        ></div>
+        <div class="meta">
+          <p class="industry">Law</p>
+          <h2>Ashworth &amp; Hale</h2>
+        </div>
+      </a>
+      <a class="demo" href="oakdale-dental.html">
+        <div
+          class="swatch"
+          style="background-image: linear-gradient(135deg, #d8efe8, #2a6b5e)"
+        ></div>
+        <div class="meta">
+          <p class="industry">Dental</p>
+          <h2>Oakdale Dental</h2>
+        </div>
+      </a>
+      <a class="demo" href="forge-athletic.html">
+        <div
+          class="swatch"
+          style="background-image: linear-gradient(135deg, #141414, #c8ff3d)"
+        ></div>
+        <div class="meta">
+          <p class="industry">Fitness</p>
+          <h2>Forge Athletic</h2>
+        </div>
+      </a>
+      <a class="demo" href="northline-estates.html">
+        <div
+          class="swatch"
+          style="background-image: linear-gradient(135deg, #4a5d73, #d5dbe3)"
+        ></div>
+        <div class="meta">
+          <p class="industry">Real estate</p>
+          <h2>Northline Estates</h2>
+        </div>
+      </a>
+      <a class="demo" href="mill-bean.html">
+        <div
+          class="swatch"
+          style="background-image: linear-gradient(135deg, #2c1810, #d4a574)"
+        ></div>
+        <div class="meta">
+          <p class="industry">Café</p>
+          <h2>Mill &amp; Bean</h2>
+        </div>
+      </a>
+      <a class="demo" href="ledger-co.html">
+        <div
+          class="swatch"
+          style="background-image: linear-gradient(135deg, #1e3d32, #f0eee8)"
+        ></div>
+        <div class="meta">
+          <p class="industry">Accountancy</p>
+          <h2>Ledger &amp; Co.</h2>
+        </div>
+      </a>
+      <a class="demo" href="atelier-rose.html">
+        <div
+          class="swatch"
+          style="background-image: linear-gradient(135deg, #2a2224, #e8b4b8)"
+        ></div>
+        <div class="meta">
+          <p class="industry">Salon</p>
+          <h2>Atelier Rose</h2>
+        </div>
+      </a>
+      <a class="demo" href="brightwater-plumbing.html">
+        <div
+          class="swatch"
+          style="background-image: linear-gradient(135deg, #0a4a6e, #f5c518)"
+        ></div>
+        <div class="meta">
+          <p class="industry">Trades</p>
+          <h2>Brightwater Plumbing</h2>
+        </div>
+      </a>
+      <a class="demo" href="lineform-studio.html">
+        <div
+          class="swatch"
+          style="background-image: linear-gradient(135deg, #111111, #9a9a9a)"
+        ></div>
+        <div class="meta">
+          <p class="industry">Architecture</p>
+          <h2>Lineform Studio</h2>
+        </div>
+      </a>
+    </div>
+  </body>
+</html>

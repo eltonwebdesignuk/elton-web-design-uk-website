@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ledger &amp; Co. — Accountants</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Serif:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --forest: #1e3d32;
+        --forest-mid: #2a5244;
+        --leaf: #3d7a62;
+        --paper: #f0eee8;
+        --ink: #14241e;
+        --display: "IBM Plex Serif", Georgia, serif;
+        --body: "IBM Plex Sans", system-ui, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: var(--body);
+        color: var(--ink);
+        background: var(--paper);
+        line-height: 1.55;
+      }
+      .site-header {
+        position: absolute;
+        inset: 0 0 auto;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.3rem 2rem;
+        color: var(--paper);
+      }
+      .logo {
+        font-family: var(--display);
+        font-weight: 600;
+        font-size: 1.2rem;
+        text-decoration: none;
+        color: inherit;
+      }
+      .nav {
+        display: flex;
+        gap: 1.5rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+      .nav a {
+        color: inherit;
+        text-decoration: none;
+        opacity: 0.88;
+      }
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        color: var(--paper);
+        overflow: hidden;
+        background: var(--forest);
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 80% 60% at 70% 40%, rgba(61, 122, 98, 0.35), transparent 60%),
+          linear-gradient(115deg, rgba(30, 61, 50, 0.97) 0%, rgba(30, 61, 50, 0.85) 50%, rgba(30, 61, 50, 0.55) 100%),
+          url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1800&q=80")
+            right center / cover no-repeat;
+        animation: settle 1.1s ease both;
+      }
+      @keyframes settle {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        padding: 6rem 2rem 4rem;
+        max-width: 36rem;
+        animation: lift 0.8s 0.15s ease both;
+      }
+      @keyframes lift {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .brand-mark {
+        font-family: var(--display);
+        font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+        font-weight: 600;
+        margin: 0 0 0.85rem;
+        line-height: 1.15;
+      }
+      .hero h1 {
+        font-weight: 400;
+        font-size: clamp(1.15rem, 2.4vw, 1.35rem);
+        margin: 0 0 0.85rem;
+        line-height: 1.45;
+        opacity: 0.92;
+      }
+      .hero-lead {
+        margin: 0 0 1.6rem;
+        opacity: 0.8;
+        max-width: 28rem;
+      }
+      .btn {
+        display: inline-flex;
+        padding: 0.9rem 1.45rem;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: transform 0.2s, background 0.2s;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        background: #fff;
+        color: var(--forest);
+      }
+      .section {
+        padding: 4.5rem 2rem;
+      }
+      .wrap {
+        max-width: 60rem;
+        margin: 0 auto;
+      }
+      .section h2 {
+        font-family: var(--display);
+        font-size: clamp(1.75rem, 3.5vw, 2.3rem);
+        margin: 0 0 0.6rem;
+        color: var(--forest);
+      }
+      .section-lead {
+        margin: 0 0 2.25rem;
+        max-width: 32rem;
+        color: rgba(20, 36, 30, 0.68);
+      }
+      .services {
+        display: grid;
+        gap: 1.5rem 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+      }
+      .services article {
+        padding-top: 1rem;
+        border-top: 2px solid var(--leaf);
+      }
+      .services h3 {
+        margin: 0 0 0.4rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+      .services p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: rgba(20, 36, 30, 0.68);
+      }
+      .why {
+        background: var(--forest);
+        color: var(--paper);
+      }
+      .why h2 {
+        color: var(--paper);
+      }
+      .why .section-lead {
+        color: rgba(240, 238, 232, 0.7);
+      }
+      .cta {
+        text-align: center;
+        background: linear-gradient(180deg, #e5e2d8, var(--paper));
+      }
+      .cta .section-lead {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .cta .btn-primary {
+        background: var(--forest);
+        color: #fff;
+      }
+      footer {
+        text-align: center;
+        padding: 1.5rem;
+        font-size: 0.88rem;
+        color: rgba(20, 36, 30, 0.5);
+        background: var(--forest);
+        color: rgba(240, 238, 232, 0.55);
+      }
+      @media (max-width: 640px) {
+        .nav {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="#">Ledger &amp; Co.</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="brand-mark">Ledger &amp; Co.</p>
+          <h1>Accountancy that keeps your business clear, compliant, and growing.</h1>
+          <p class="hero-lead">
+            Tax, bookkeeping, and advisory for SMEs and freelancers across
+            Manchester.
+          </p>
+          <a class="btn btn-primary" href="#contact">Get a quote</a>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="wrap">
+          <h2>What we handle</h2>
+          <p class="section-lead">
+            Practical finance support — so you can focus on the work that pays.
+          </p>
+          <div class="services">
+            <article>
+              <h3>Self assessment</h3>
+              <p>Year-end returns filed accurately and on time.</p>
+            </article>
+            <article>
+              <h3>Limited company</h3>
+              <p>Corporation tax, accounts, and Companies House filings.</p>
+            </article>
+            <article>
+              <h3>Bookkeeping</h3>
+              <p>Monthly reconciliations and cloud software setup.</p>
+            </article>
+            <article>
+              <h3>Advisory</h3>
+              <p>Cash flow, VAT registration, and growth planning.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section why" id="about">
+        <div class="wrap">
+          <h2>Numbers without the jargon</h2>
+          <p class="section-lead">
+            Fixed-fee packages, named contacts, and replies within one working
+            day. Chartered accountants you can actually reach.
+          </p>
+        </div>
+      </section>
+
+      <section class="section cta" id="contact">
+        <div class="wrap">
+          <h2>Ready for clearer books?</h2>
+          <p class="section-lead">Tell us about your business — we’ll send a fixed quote within 24 hours.</p>
+          <a class="btn btn-primary" href="mailto:hello@ledgerandco.example"
+            >Request a quote</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>Ledger &amp; Co. · Manchester · Concept design demo</footer>
+  </body>
+</html>

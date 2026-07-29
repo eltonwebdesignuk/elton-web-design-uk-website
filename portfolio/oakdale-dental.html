@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Oakdale Dental — Calm, modern dentistry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Literata:opsz,wght@7..72,500;7..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --mint: #2a6b5e;
+        --mint-soft: #d8efe8;
+        --sky: #eef6f4;
+        --ink: #1a2e2a;
+        --white: #ffffff;
+        --display: "Literata", Georgia, serif;
+        --body: "Figtree", system-ui, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: var(--body);
+        color: var(--ink);
+        background: var(--sky);
+        line-height: 1.55;
+      }
+      .site-header {
+        position: absolute;
+        inset: 0 0 auto;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem 1.75rem;
+      }
+      .logo {
+        font-family: var(--display);
+        font-weight: 600;
+        font-size: 1.25rem;
+        text-decoration: none;
+        color: var(--ink);
+      }
+      .nav {
+        display: flex;
+        gap: 1.4rem;
+        font-size: 0.92rem;
+        font-weight: 500;
+      }
+      .nav a {
+        text-decoration: none;
+        color: var(--ink);
+        opacity: 0.8;
+      }
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background: var(--mint-soft);
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, rgba(216, 239, 232, 0.95) 0%, rgba(216, 239, 232, 0.75) 42%, rgba(216, 239, 232, 0.15) 100%),
+          url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=1800&q=80")
+            right center / cover no-repeat;
+        animation: softIn 1.1s ease both;
+      }
+      @keyframes softIn {
+        from {
+          opacity: 0.4;
+          transform: scale(1.04);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        padding: 6rem 1.75rem 4rem;
+        max-width: 34rem;
+        animation: fadeUp 0.8s 0.2s ease both;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .brand-mark {
+        font-family: var(--display);
+        font-size: clamp(2.4rem, 6vw, 3.8rem);
+        font-weight: 600;
+        margin: 0 0 0.85rem;
+        line-height: 1.1;
+        color: var(--mint);
+      }
+      .hero h1 {
+        font-family: var(--body);
+        font-weight: 500;
+        font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+        margin: 0 0 0.85rem;
+        line-height: 1.4;
+      }
+      .hero-lead {
+        margin: 0 0 1.6rem;
+        color: rgba(26, 46, 42, 0.75);
+      }
+      .btn {
+        display: inline-flex;
+        padding: 0.85rem 1.35rem;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: transform 0.2s ease, background 0.2s;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        background: var(--mint);
+        color: #fff;
+      }
+      .btn-ghost {
+        margin-left: 0.5rem;
+        background: transparent;
+        color: var(--mint);
+        border: 1.5px solid var(--mint);
+      }
+      .section {
+        padding: 4.5rem 1.75rem;
+      }
+      .wrap {
+        max-width: 60rem;
+        margin: 0 auto;
+      }
+      .section h2 {
+        font-family: var(--display);
+        font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+        margin: 0 0 0.6rem;
+        color: var(--mint);
+      }
+      .section-lead {
+        margin: 0 0 2.25rem;
+        max-width: 32rem;
+        color: rgba(26, 46, 42, 0.7);
+      }
+      .services {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+      }
+      .services article {
+        background: var(--white);
+        padding: 1.5rem 1.35rem;
+        border-radius: 12px;
+        border: 1px solid rgba(42, 107, 94, 0.12);
+        transition: transform 0.25s ease;
+      }
+      .services article:hover {
+        transform: translateY(-3px);
+      }
+      .services h3 {
+        margin: 0 0 0.4rem;
+        font-size: 1.1rem;
+      }
+      .services p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: rgba(26, 46, 42, 0.68);
+      }
+      .book {
+        background: var(--mint);
+        color: #fff;
+        text-align: center;
+      }
+      .book h2 {
+        color: #fff;
+      }
+      .book .section-lead {
+        color: rgba(255, 255, 255, 0.8);
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .book .btn-primary {
+        background: #fff;
+        color: var(--mint);
+      }
+      footer {
+        text-align: center;
+        padding: 1.5rem;
+        font-size: 0.88rem;
+        color: rgba(26, 46, 42, 0.5);
+      }
+      @media (max-width: 640px) {
+        .nav {
+          display: none;
+        }
+        .btn-ghost {
+          margin-left: 0;
+          margin-top: 0.5rem;
+        }
+        .hero-actions {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="#">Oakdale Dental</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#book">Book</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="brand-mark">Oakdale Dental</p>
+          <h1>Gentle dentistry in a calm, modern practice.</h1>
+          <p class="hero-lead">
+            Check-ups, cosmetic care, and emergency appointments — with time to
+            listen and explain.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#book">Book online</a>
+            <a class="btn btn-ghost" href="#services">Our services</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="wrap">
+          <h2>Care that fits your life</h2>
+          <p class="section-lead">
+            From routine hygiene to smile makeovers — one welcoming team.
+          </p>
+          <div class="services">
+            <article>
+              <h3>Check-ups &amp; hygiene</h3>
+              <p>Thorough exams and cleans to keep you confident between visits.</p>
+            </article>
+            <article>
+              <h3>Cosmetic dentistry</h3>
+              <p>Whitening, bonding, and aligners planned around your goals.</p>
+            </article>
+            <article>
+              <h3>Family care</h3>
+              <p>Friendly appointments for children and nervous patients.</p>
+            </article>
+            <article>
+              <h3>Same-day emergencies</h3>
+              <p>Pain relief when you need it — call first thing.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about" style="background: var(--white)">
+        <div class="wrap">
+          <h2>Your neighbourhood practice</h2>
+          <p class="section-lead">
+            Based in Guildford with free parking and late-evening clinics on
+            Thursdays. NHS and private options available.
+          </p>
+        </div>
+      </section>
+
+      <section class="section book" id="book">
+        <div class="wrap">
+          <h2>Book your next visit</h2>
+          <p class="section-lead">New patients welcome. Online booking takes under a minute.</p>
+          <a class="btn btn-primary" href="mailto:hello@oakdaledental.example"
+            >Request an appointment</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>Oakdale Dental · Guildford · Concept design demo</footer>
+  </body>
+</html>

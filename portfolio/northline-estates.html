@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Northline Estates — Property done properly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --slate: #3d4f63;
+        --slate-deep: #2a3848;
+        --mist: #d5dbe3;
+        --paper: #eef1f5;
+        --ink: #1c2530;
+        --accent: #5b7a9a;
+        --display: "Newsreader", Georgia, serif;
+        --body: "Manrope", system-ui, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: var(--body);
+        color: var(--ink);
+        background: var(--paper);
+        line-height: 1.55;
+      }
+      .site-header {
+        position: absolute;
+        inset: 0 0 auto;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.3rem 2rem;
+        color: #fff;
+      }
+      .logo {
+        font-family: var(--display);
+        font-size: 1.35rem;
+        font-weight: 600;
+        text-decoration: none;
+        color: inherit;
+      }
+      .nav {
+        display: flex;
+        gap: 1.5rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+      .nav a {
+        color: inherit;
+        text-decoration: none;
+        opacity: 0.9;
+      }
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        overflow: hidden;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(to bottom, rgba(42, 56, 72, 0.55) 0%, rgba(42, 56, 72, 0.75) 100%),
+          url("https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80")
+            center / cover no-repeat;
+        animation: reveal 1.2s ease both;
+      }
+      @keyframes reveal {
+        from {
+          opacity: 0;
+          transform: scale(1.05);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        padding: 6rem 2rem 4rem;
+        max-width: 38rem;
+        animation: up 0.85s 0.2s ease both;
+      }
+      @keyframes up {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .brand-mark {
+        font-family: var(--display);
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 600;
+        margin: 0 0 0.85rem;
+        line-height: 1.1;
+      }
+      .hero h1 {
+        font-weight: 500;
+        font-size: clamp(1.15rem, 2.5vw, 1.4rem);
+        margin: 0 0 0.85rem;
+        line-height: 1.4;
+        opacity: 0.95;
+      }
+      .hero-lead {
+        margin: 0 0 1.6rem;
+        opacity: 0.85;
+        max-width: 28rem;
+      }
+      .btn {
+        display: inline-flex;
+        padding: 0.9rem 1.45rem;
+        font-weight: 700;
+        font-size: 0.92rem;
+        text-decoration: none;
+        transition: transform 0.2s, background 0.2s;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        background: #fff;
+        color: var(--slate-deep);
+      }
+      .btn-ghost {
+        margin-left: 0.55rem;
+        border: 1.5px solid rgba(255, 255, 255, 0.55);
+        color: #fff;
+      }
+      .section {
+        padding: 4.5rem 2rem;
+      }
+      .wrap {
+        max-width: 64rem;
+        margin: 0 auto;
+      }
+      .section h2 {
+        font-family: var(--display);
+        font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+        margin: 0 0 0.6rem;
+      }
+      .section-lead {
+        margin: 0 0 2.25rem;
+        max-width: 32rem;
+        color: rgba(28, 37, 48, 0.68);
+      }
+      .listings {
+        display: grid;
+        gap: 1.25rem;
+        grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+      }
+      .listing {
+        background: #fff;
+        overflow: hidden;
+        border: 1px solid rgba(61, 79, 99, 0.12);
+        transition: transform 0.25s ease, box-shadow 0.25s;
+      }
+      .listing:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 40px rgba(42, 56, 72, 0.12);
+      }
+      .listing-img {
+        height: 11rem;
+        background-size: cover;
+        background-position: center;
+      }
+      .listing-body {
+        padding: 1.15rem 1.25rem 1.35rem;
+      }
+      .listing h3 {
+        margin: 0 0 0.3rem;
+        font-size: 1.05rem;
+      }
+      .listing .price {
+        font-family: var(--display);
+        font-size: 1.25rem;
+        color: var(--slate);
+        margin: 0 0 0.35rem;
+      }
+      .listing p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: rgba(28, 37, 48, 0.65);
+      }
+      .services-band {
+        background: var(--slate-deep);
+        color: #fff;
+      }
+      .services-band .section-lead {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .svc {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+      }
+      .svc h3 {
+        margin: 0 0 0.4rem;
+        font-size: 1.1rem;
+      }
+      .svc p {
+        margin: 0;
+        opacity: 0.75;
+        font-size: 0.95rem;
+      }
+      footer {
+        text-align: center;
+        padding: 1.5rem;
+        font-size: 0.88rem;
+        color: rgba(28, 37, 48, 0.5);
+      }
+      @media (max-width: 640px) {
+        .nav {
+          display: none;
+        }
+        .btn-ghost {
+          margin-left: 0;
+          margin-top: 0.5rem;
+        }
+        .hero-actions {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="#">Northline Estates</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#listings">Listings</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="brand-mark">Northline Estates</p>
+          <h1>Homes across Yorkshire — valued, marketed, and sold with care.</h1>
+          <p class="hero-lead">
+            Independent estate agency for buyers, sellers, and landlords who want
+            straight answers.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#listings">View listings</a>
+            <a class="btn btn-ghost" href="#contact">Book a valuation</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="listings">
+        <div class="wrap">
+          <h2>Featured properties</h2>
+          <p class="section-lead">A sample of what’s currently available.</p>
+          <div class="listings">
+            <article class="listing">
+              <div
+                class="listing-img"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80');
+                "
+              ></div>
+              <div class="listing-body">
+                <p class="price">£485,000</p>
+                <h3>Detached family home</h3>
+                <p>Harrogate · 4 bed · Garden</p>
+              </div>
+            </article>
+            <article class="listing">
+              <div
+                class="listing-img"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80');
+                "
+              ></div>
+              <div class="listing-body">
+                <p class="price">£325,000</p>
+                <h3>Victorian terrace</h3>
+                <p>York · 3 bed · Period features</p>
+              </div>
+            </article>
+            <article class="listing">
+              <div
+                class="listing-img"
+                style="
+                  background-image: url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80');
+                "
+              ></div>
+              <div class="listing-body">
+                <p class="price">£1,150 pcm</p>
+                <h3>City apartment</h3>
+                <p>Leeds · 2 bed · To let</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section services-band" id="services">
+        <div class="wrap">
+          <h2>How we help</h2>
+          <p class="section-lead">Sales, lettings, and valuations — local knowledge, clear fees.</p>
+          <div class="svc">
+            <div>
+              <h3>Sell</h3>
+              <p>Photography, portals, and negotiation until keys exchange.</p>
+            </div>
+            <div>
+              <h3>Let</h3>
+              <p>Tenant find and fully managed options for busy landlords.</p>
+            </div>
+            <div>
+              <h3>Value</h3>
+              <p>Free market appraisals with honest comparables.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="wrap">
+          <h2>Book a valuation</h2>
+          <p class="section-lead">We’ll visit within 48 hours across Leeds, York, and Harrogate.</p>
+          <a class="btn btn-primary" href="mailto:hello@northlineestates.example" style="background: var(--slate); color: #fff"
+            >Request a callback</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>Northline Estates · Yorkshire · Concept design demo</footer>
+  </body>
+</html>

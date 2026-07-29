@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Forge Athletic — Strength &amp; conditioning</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --black: #0e0e0e;
+        --char: #1a1a1a;
+        --lime: #c8ff3d;
+        --muted: #9a9a9a;
+        --white: #f2f2f2;
+        --display: "Barlow Condensed", Impact, sans-serif;
+        --body: "Barlow", system-ui, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: var(--body);
+        color: var(--white);
+        background: var(--black);
+        line-height: 1.5;
+      }
+      .site-header {
+        position: absolute;
+        inset: 0 0 auto;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 1.75rem;
+      }
+      .logo {
+        font-family: var(--display);
+        font-weight: 800;
+        font-size: 1.5rem;
+        letter-spacing: 0.06em;
+        text-decoration: none;
+        color: var(--white);
+        text-transform: uppercase;
+      }
+      .nav {
+        display: flex;
+        gap: 1.5rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .nav a {
+        color: var(--white);
+        text-decoration: none;
+        opacity: 0.8;
+      }
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(to top, #0e0e0e 0%, rgba(14, 14, 14, 0.55) 40%, rgba(14, 14, 14, 0.3) 100%),
+          url("https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1800&q=80")
+            center / cover no-repeat;
+        animation: ken 14s ease-out forwards;
+      }
+      @keyframes ken {
+        from {
+          transform: scale(1.08);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        padding: 0 1.75rem 4rem;
+        max-width: 44rem;
+        animation: punch 0.7s ease both;
+      }
+      @keyframes punch {
+        from {
+          opacity: 0;
+          transform: translateX(-18px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .brand-mark {
+        font-family: var(--display);
+        font-size: clamp(3.5rem, 12vw, 7.5rem);
+        font-weight: 800;
+        line-height: 0.9;
+        margin: 0 0 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+      }
+      .brand-mark span {
+        color: var(--lime);
+      }
+      .hero h1 {
+        font-family: var(--body);
+        font-weight: 500;
+        font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+        margin: 0 0 0.75rem;
+        max-width: 28rem;
+      }
+      .hero-lead {
+        margin: 0 0 1.5rem;
+        color: var(--muted);
+        max-width: 26rem;
+      }
+      .btn {
+        display: inline-flex;
+        padding: 0.95rem 1.6rem;
+        font-family: var(--display);
+        font-size: 1.15rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: transform 0.2s, background 0.2s;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        background: var(--lime);
+        color: var(--black);
+      }
+      .btn-ghost {
+        margin-left: 0.6rem;
+        border: 2px solid rgba(242, 242, 242, 0.4);
+        color: var(--white);
+      }
+      .section {
+        padding: 4.5rem 1.75rem;
+      }
+      .wrap {
+        max-width: 62rem;
+        margin: 0 auto;
+      }
+      .section h2 {
+        font-family: var(--display);
+        font-size: clamp(2.2rem, 5vw, 3.2rem);
+        font-weight: 800;
+        text-transform: uppercase;
+        margin: 0 0 0.5rem;
+        letter-spacing: 0.02em;
+        line-height: 1;
+      }
+      .section-lead {
+        margin: 0 0 2.5rem;
+        color: var(--muted);
+        max-width: 30rem;
+      }
+      .programs {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+      }
+      .programs article {
+        background: var(--char);
+        padding: 1.75rem 1.5rem;
+        border-left: 4px solid var(--lime);
+        transition: background 0.25s;
+      }
+      .programs article:hover {
+        background: #222;
+      }
+      .programs h3 {
+        font-family: var(--display);
+        font-size: 1.6rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0 0 0.4rem;
+        letter-spacing: 0.03em;
+      }
+      .programs p {
+        margin: 0;
+        color: var(--muted);
+      }
+      .membership {
+        background: var(--lime);
+        color: var(--black);
+      }
+      .membership .section-lead {
+        color: rgba(14, 14, 14, 0.7);
+      }
+      .membership .btn-primary {
+        background: var(--black);
+        color: var(--lime);
+      }
+      footer {
+        text-align: center;
+        padding: 1.5rem;
+        font-size: 0.85rem;
+        color: var(--muted);
+        border-top: 1px solid #222;
+      }
+      @media (max-width: 640px) {
+        .nav {
+          display: none;
+        }
+        .btn-ghost {
+          margin-left: 0;
+          margin-top: 0.5rem;
+        }
+        .hero-actions {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="#">Forge</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#programs">Programs</a>
+        <a href="#join">Join</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="brand-mark">Forge <span>Athletic</span></p>
+          <h1>Strength training without the fluff. Results without the excuses.</h1>
+          <p class="hero-lead">
+            Open-floor gym in Leeds. Coaching, classes, and 24/7 member access.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#join">Start free week</a>
+            <a class="btn btn-ghost" href="#programs">See programs</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="programs">
+        <div class="wrap">
+          <h2>Train with intent</h2>
+          <p class="section-lead">Pick a lane. We’ll push you through it.</p>
+          <div class="programs">
+            <article>
+              <h3>Strength</h3>
+              <p>Barbell programming, progressive overload, form coaching.</p>
+            </article>
+            <article>
+              <h3>Conditioning</h3>
+              <p>Engine work that doesn’t waste your hour on the floor.</p>
+            </article>
+            <article>
+              <h3>1:1 coaching</h3>
+              <p>Personal plans, check-ins, and accountability that sticks.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section membership" id="join">
+        <div class="wrap">
+          <h2>Join Forge</h2>
+          <p class="section-lead">
+            Unlimited floor + classes from £49/month. First week free — no card
+            required to start.
+          </p>
+          <a class="btn btn-primary" href="mailto:join@forgeathletic.example"
+            >Claim your free week</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>Forge Athletic · Leeds · Concept design demo</footer>
+  </body>
+</html>

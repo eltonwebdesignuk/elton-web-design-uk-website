@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brightwater Plumbing — Fast, fair, local</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --blue: #0a4a6e;
+        --blue-deep: #063550;
+        --yellow: #f5c518;
+        --sky: #e8f2f8;
+        --ink: #0a2a3d;
+        --display: "Space Grotesk", system-ui, sans-serif;
+        --body: "Archivo", system-ui, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: var(--body);
+        color: var(--ink);
+        background: var(--sky);
+        line-height: 1.5;
+      }
+      .site-header {
+        position: absolute;
+        inset: 0 0 auto;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 1.75rem;
+        color: #fff;
+      }
+      .logo {
+        font-family: var(--display);
+        font-weight: 700;
+        font-size: 1.15rem;
+        text-decoration: none;
+        color: inherit;
+      }
+      .nav {
+        display: flex;
+        gap: 1.25rem;
+        align-items: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+      .nav a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .nav-phone {
+        background: var(--yellow);
+        color: var(--blue-deep) !important;
+        padding: 0.55rem 0.9rem;
+        border-radius: 6px;
+      }
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        overflow: hidden;
+        background: var(--blue);
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(105deg, rgba(10, 74, 110, 0.95) 0%, rgba(10, 74, 110, 0.8) 45%, rgba(10, 74, 110, 0.55) 100%),
+          url("https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1800&q=80")
+            center / cover no-repeat;
+        animation: fadeScale 1s ease both;
+      }
+      @keyframes fadeScale {
+        from {
+          opacity: 0;
+          transform: scale(1.04);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        padding: 6rem 1.75rem 4rem;
+        max-width: 38rem;
+        animation: slideIn 0.75s 0.15s ease both;
+      }
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateX(-16px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .brand-mark {
+        font-family: var(--display);
+        font-size: clamp(2.2rem, 6vw, 3.5rem);
+        font-weight: 700;
+        margin: 0 0 0.75rem;
+        line-height: 1.1;
+      }
+      .hero h1 {
+        font-family: var(--display);
+        font-weight: 600;
+        font-size: clamp(1.25rem, 3vw, 1.65rem);
+        margin: 0 0 0.75rem;
+        color: var(--yellow);
+        line-height: 1.3;
+      }
+      .hero-lead {
+        margin: 0 0 1.5rem;
+        opacity: 0.9;
+        max-width: 28rem;
+        font-size: 1.05rem;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.95rem 1.4rem;
+        border-radius: 6px;
+        font-weight: 700;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: transform 0.2s, background 0.2s;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        background: var(--yellow);
+        color: var(--blue-deep);
+      }
+      .btn-ghost {
+        margin-left: 0.55rem;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        color: #fff;
+      }
+      .section {
+        padding: 4.5rem 1.75rem;
+      }
+      .wrap {
+        max-width: 60rem;
+        margin: 0 auto;
+      }
+      .section h2 {
+        font-family: var(--display);
+        font-size: clamp(1.8rem, 4vw, 2.4rem);
+        font-weight: 700;
+        margin: 0 0 0.55rem;
+        color: var(--blue);
+      }
+      .section-lead {
+        margin: 0 0 2.25rem;
+        max-width: 32rem;
+        color: rgba(10, 42, 61, 0.7);
+      }
+      .jobs {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+      }
+      .jobs article {
+        background: #fff;
+        padding: 1.4rem 1.25rem;
+        border-radius: 8px;
+        border-left: 5px solid var(--yellow);
+        box-shadow: 0 4px 16px rgba(10, 74, 110, 0.06);
+        transition: transform 0.2s;
+      }
+      .jobs article:hover {
+        transform: translateY(-3px);
+      }
+      .jobs h3 {
+        margin: 0 0 0.35rem;
+        font-family: var(--display);
+        font-size: 1.15rem;
+      }
+      .jobs p {
+        margin: 0;
+        font-size: 0.92rem;
+        color: rgba(10, 42, 61, 0.68);
+      }
+      .promise {
+        background: var(--blue-deep);
+        color: #fff;
+      }
+      .promise h2 {
+        color: var(--yellow);
+      }
+      .promise .section-lead {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .promise-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.85rem;
+        max-width: 28rem;
+      }
+      .promise-list li {
+        padding-left: 1.5rem;
+        position: relative;
+        font-weight: 500;
+      }
+      .promise-list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.45rem;
+        width: 0.65rem;
+        height: 0.65rem;
+        background: var(--yellow);
+        border-radius: 2px;
+      }
+      .cta {
+        text-align: center;
+      }
+      .cta .btn-primary {
+        font-size: 1.1rem;
+        padding: 1.05rem 1.7rem;
+      }
+      footer {
+        text-align: center;
+        padding: 1.5rem;
+        font-size: 0.88rem;
+        color: rgba(10, 42, 61, 0.5);
+        background: #fff;
+      }
+      @media (max-width: 640px) {
+        .nav a:not(.nav-phone) {
+          display: none;
+        }
+        .btn-ghost {
+          margin-left: 0;
+          margin-top: 0.5rem;
+        }
+        .hero-actions {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="#">Brightwater Plumbing</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#why">Why us</a>
+        <a class="nav-phone" href="tel:+441234567890">Call now</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="brand-mark">Brightwater Plumbing</p>
+          <h1>Leaks, boilers, and blocked drains — fixed fast.</h1>
+          <p class="hero-lead">
+            Gas Safe engineers across Bristol. Clear quotes before we start. No
+            call-out fee for booked jobs.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="tel:+441234567890">01234 567 890</a>
+            <a class="btn btn-ghost" href="#services">What we fix</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="wrap">
+          <h2>What we fix</h2>
+          <p class="section-lead">Emergency and planned work for homes and small businesses.</p>
+          <div class="jobs">
+            <article>
+              <h3>Boiler repair</h3>
+              <p>Breakdowns, servicing, and new installs.</p>
+            </article>
+            <article>
+              <h3>Leaks &amp; bursts</h3>
+              <p>Same-day response to stop the damage.</p>
+            </article>
+            <article>
+              <h3>Blocked drains</h3>
+              <p>Power jetting and CCTV where needed.</p>
+            </article>
+            <article>
+              <h3>Bathrooms</h3>
+              <p>Full refits from first fix to final seal.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section promise" id="why">
+        <div class="wrap">
+          <h2>The Brightwater promise</h2>
+          <p class="section-lead">Local, insured, and upfront about cost.</p>
+          <ul class="promise-list">
+            <li>Fixed quotes before work begins</li>
+            <li>Gas Safe registered engineers</li>
+            <li>Photos of the job when we’re done</li>
+            <li>12-month workmanship guarantee</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section cta" id="contact">
+        <div class="wrap">
+          <h2>Need a plumber today?</h2>
+          <p class="section-lead" style="margin-left: auto; margin-right: auto">
+            Call now or email — we aim to reply within the hour.
+          </p>
+          <a class="btn btn-primary" href="tel:+441234567890">Call 01234 567 890</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>Brightwater Plumbing · Bristol · Concept design demo</footer>
+  </body>
+</html>

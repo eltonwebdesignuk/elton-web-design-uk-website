@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mill &amp; Bean — Coffee &amp; bakery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --espresso: #2c1810;
+        --roast: #4a2c1a;
+        --caramel: #c4894a;
+        --cream: #f3ebe0;
+        --foam: #faf6f0;
+        --display: "Fraunces", Georgia, serif;
+        --body: "Nunito", system-ui, sans-serif;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: var(--body);
+        color: var(--espresso);
+        background: var(--foam);
+        line-height: 1.55;
+      }
+      .site-header {
+        position: absolute;
+        inset: 0 0 auto;
+        z-index: 10;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem 1.75rem;
+        color: var(--foam);
+      }
+      .logo {
+        font-family: var(--display);
+        font-weight: 700;
+        font-size: 1.3rem;
+        text-decoration: none;
+        color: inherit;
+      }
+      .nav {
+        display: flex;
+        gap: 1.4rem;
+        font-weight: 600;
+        font-size: 0.92rem;
+      }
+      .nav a {
+        color: inherit;
+        text-decoration: none;
+        opacity: 0.9;
+      }
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        align-items: flex-end;
+        color: var(--foam);
+        overflow: hidden;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(to top, rgba(44, 24, 16, 0.92) 0%, rgba(44, 24, 16, 0.4) 50%, rgba(44, 24, 16, 0.25) 100%),
+          url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1800&q=80")
+            center / cover no-repeat;
+        animation: brew 11s ease-out forwards;
+      }
+      @keyframes brew {
+        from {
+          transform: scale(1.07);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        padding: 0 1.75rem 4rem;
+        max-width: 36rem;
+        animation: steam 0.9s ease both;
+      }
+      @keyframes steam {
+        from {
+          opacity: 0;
+          transform: translateY(22px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .brand-mark {
+        font-family: var(--display);
+        font-size: clamp(2.8rem, 8vw, 4.8rem);
+        font-weight: 700;
+        margin: 0 0 0.7rem;
+        line-height: 1.05;
+      }
+      .hero h1 {
+        font-family: var(--display);
+        font-weight: 500;
+        font-style: italic;
+        font-size: clamp(1.25rem, 3vw, 1.65rem);
+        margin: 0 0 0.75rem;
+        color: var(--caramel);
+      }
+      .hero-lead {
+        margin: 0 0 1.5rem;
+        opacity: 0.9;
+        max-width: 26rem;
+      }
+      .btn {
+        display: inline-flex;
+        padding: 0.85rem 1.4rem;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: transform 0.2s, background 0.2s;
+      }
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+      .btn-primary {
+        background: var(--caramel);
+        color: var(--espresso);
+      }
+      .btn-ghost {
+        margin-left: 0.5rem;
+        border: 1.5px solid rgba(250, 246, 240, 0.5);
+        color: var(--foam);
+      }
+      .section {
+        padding: 4.5rem 1.75rem;
+      }
+      .wrap {
+        max-width: 58rem;
+        margin: 0 auto;
+      }
+      .section h2 {
+        font-family: var(--display);
+        font-size: clamp(1.9rem, 4vw, 2.6rem);
+        margin: 0 0 0.55rem;
+      }
+      .section-lead {
+        margin: 0 0 2.25rem;
+        max-width: 30rem;
+        color: rgba(44, 24, 16, 0.7);
+      }
+      .menu-cols {
+        display: grid;
+        gap: 2.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+      }
+      .menu-cols h3 {
+        font-family: var(--display);
+        font-size: 1.35rem;
+        margin: 0 0 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--caramel);
+      }
+      .menu-cols ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .menu-cols li {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.45rem 0;
+        font-size: 0.98rem;
+        border-bottom: 1px dashed rgba(44, 24, 16, 0.12);
+      }
+      .hours {
+        background: var(--espresso);
+        color: var(--foam);
+      }
+      .hours .section-lead {
+        color: rgba(250, 246, 240, 0.7);
+      }
+      .hours-grid {
+        display: grid;
+        gap: 0.75rem 2rem;
+        grid-template-columns: auto 1fr;
+        max-width: 22rem;
+        font-size: 1.05rem;
+      }
+      .hours-grid span:nth-child(odd) {
+        font-weight: 700;
+      }
+      footer {
+        text-align: center;
+        padding: 1.5rem;
+        font-size: 0.88rem;
+        color: rgba(44, 24, 16, 0.5);
+        background: var(--cream);
+      }
+      @media (max-width: 640px) {
+        .nav {
+          display: none;
+        }
+        .btn-ghost {
+          margin-left: 0;
+          margin-top: 0.5rem;
+        }
+        .hero-actions {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="#">Mill &amp; Bean</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#menu">Menu</a>
+        <a href="#hours">Hours</a>
+        <a href="#visit">Visit</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+          <p class="brand-mark">Mill &amp; Bean</p>
+          <h1>Small-batch coffee and fresh bakery on the high street.</h1>
+          <p class="hero-lead">
+            Roasted weekly. Baked before dawn. Come for the flat white, stay for
+            the cinnamon bun.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#menu">See the menu</a>
+            <a class="btn btn-ghost" href="#hours">Opening hours</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="menu">
+        <div class="wrap">
+          <h2>From the counter</h2>
+          <p class="section-lead">A short menu, made well. All-day brunch on weekends.</p>
+          <div class="menu-cols">
+            <div>
+              <h3>Coffee</h3>
+              <ul>
+                <li><span>Espresso</span><span>£2.40</span></li>
+                <li><span>Flat white</span><span>£3.40</span></li>
+                <li><span>Filter of the day</span><span>£3.00</span></li>
+                <li><span>Hot chocolate</span><span>£3.50</span></li>
+              </ul>
+            </div>
+            <div>
+              <h3>Bakery</h3>
+              <ul>
+                <li><span>Sourdough loaf</span><span>£4.00</span></li>
+                <li><span>Cinnamon bun</span><span>£3.20</span></li>
+                <li><span>Almond croissant</span><span>£3.50</span></li>
+                <li><span>Banana bread</span><span>£3.00</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section hours" id="hours">
+        <div class="wrap">
+          <h2>When we’re open</h2>
+          <p class="section-lead">Walk-ins welcome. Takeaway always available.</p>
+          <div class="hours-grid">
+            <span>Mon–Fri</span><span>7:30am – 4:00pm</span>
+            <span>Saturday</span><span>8:00am – 5:00pm</span>
+            <span>Sunday</span><span>9:00am – 3:00pm</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="visit">
+        <div class="wrap">
+          <h2>Find us</h2>
+          <p class="section-lead">
+            14 Chapel Street, Brighton. Five minutes from the station — look for
+            the green awning.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>Mill &amp; Bean · Brighton · Concept design demo</footer>
+  </body>
+</html>
