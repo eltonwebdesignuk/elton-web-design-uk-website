@@ -75,10 +75,19 @@ a:hover {
 }
 
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 1.15rem;
   letter-spacing: -0.02em;
+}
+
+.logo-mark {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
 }
 
 .nav {
