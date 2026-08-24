@@ -2,7 +2,7 @@
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const revealTargets = document.querySelectorAll(
-    ".section h2, .section-lead, .audience-list, .package, .steps li, .contact-embed, .payment-note, .carousel, .ai-how, .ai-price, .econ, .econ-note, .result-stat"
+    ".section h2, .section-lead, .audience-list, .package, .steps li, .contact-embed, .payment-note, .carousel, .faq-list, .ai-how, .ai-price, .econ, .econ-note, .result-stat"
   );
 
   revealTargets.forEach((el) => el.classList.add("reveal"));
